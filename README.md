@@ -11,6 +11,14 @@ npm test         # Vitest
 npm run build    # kiểm tra TypeScript + build production
 ```
 
+## Bản online (GitHub Pages)
+
+https://quocdat16610-web.github.io/app-coding-android/
+
+Workflow `.github/workflows/deploy-pages.yml` tự chạy test, build và deploy mỗi lần push lên `main` hoặc nhánh phát triển. Bản build dùng `BASE_PATH=/<tên repo>/`. File `404.html` là bản sao của `index.html`, để mở thẳng link như `/lesson/1` vẫn vào được app.
+
+Lần đầu: vào **Settings → Pages → Build and deployment → Source** chọn **GitHub Actions**.
+
 ## Tech stack
 
 React 18 · Vite · TypeScript (strict) · React Router v6 · Tailwind CSS v3 · Framer Motion · Zustand (persist)
