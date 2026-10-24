@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastViewport } from '@/components/common/Toast';
 import { Header } from '@/components/layout/Header';
 import { useApplyTheme } from '@/hooks/useTheme';
 import LessonPage from '@/routes/LessonPage';
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+      <ToastViewport />
     </div>
   );
 }

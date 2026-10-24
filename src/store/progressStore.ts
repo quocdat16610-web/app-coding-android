@@ -25,6 +25,8 @@ export interface ProgressData {
 }
 
 interface ProgressActions {
+  /** Dev-only (?unlockAll=1): every lesson is open. Never persisted. */
+  devUnlockAll: boolean;
   isUnlocked: (lessonId: number) => boolean;
   reset: () => void;
 }
@@ -59,7 +61,9 @@ export const useProgressStore = create<ProgressState>()(
   persist(
     (set, get) => ({
       ...initialProgress(),
-      isUnlocked: (lessonId) => lessonId === 1 || Boolean(get().completedLessons[lessonId - 1]),
+      devUnlockAll: false,
+      isUnlocked: (lessonId) =>
+        get().devUnlockAll || lessonId === 1 || Boolean(get().completedLessons[lessonId - 1]),
       reset: () => set(initialProgress()),
     }),
     {

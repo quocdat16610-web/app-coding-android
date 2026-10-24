@@ -5,19 +5,6 @@ import { initialProgress, migrateProgress, useProgressStore } from '@/store/prog
 import { useSettingsStore } from '@/store/settingsStore';
 import { ROUTER_FUTURE } from '@/lib/router';
 
-beforeAll(() => {
-  window.matchMedia = ((query: string) => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addEventListener: () => {},
-    removeEventListener: () => {},
-    addListener: () => {},
-    removeListener: () => {},
-    dispatchEvent: () => false,
-  })) as unknown as typeof window.matchMedia;
-});
-
 beforeEach(() => {
   act(() => {
     useSettingsStore.setState({ theme: 'system' });
@@ -34,7 +21,7 @@ function renderAt(path: string) {
 }
 
 describe('foundation', () => {
-  it('renders the roadmap placeholder on /', () => {
+  it('renders the roadmap on /', () => {
     renderAt('/');
     expect(screen.getByRole('heading', { name: 'Bản đồ lộ trình' })).toBeInTheDocument();
   });

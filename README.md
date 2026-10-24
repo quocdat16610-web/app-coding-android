@@ -27,7 +27,7 @@ React 18 · Vite · TypeScript (strict) · React Router v6 · Tailwind CSS v3 ·
 
 - [x] GĐ 1 – Nền móng: Vite + Tailwind design tokens, font, routing, Header, đổi theme, store
 - [x] GĐ 2 – Dữ liệu: types, nội dung đầy đủ bài 1–4, khung bài 5–16 (draft), stages, validateLessons
-- [ ] GĐ 3 – Roadmap
+- [x] GĐ 3 – Roadmap: bản đồ zig-zag, banner chặng, trạng thái khoá/mở, tooltip, toast, nút "Học tiếp"
 - [ ] GĐ 4 – Speech engine
 - [ ] GĐ 5 – Trang bài học
 - [ ] GĐ 6 – Thầy Kotlin
@@ -41,3 +41,7 @@ React 18 · Vite · TypeScript (strict) · React Router v6 · Tailwind CSS v3 ·
 - `linesContaining(code, [...])` tính `highlightLines` theo nội dung, không cần đếm dòng bằng tay.
 - Trong template literal, chuỗi template Kotlin dạng `${...}` phải viết là `\${...}`.
 - `npm test` chạy `validateLessons()`: kiểm tra id trùng, đáp án hợp lệ, file Kotlin hoàn chỉnh, narration không có ký tự markdown và mỗi câu ≤ 25 từ.
+
+## Chế độ dev
+
+`npm run dev` rồi mở `http://localhost:5173/?unlockAll=1` để mở khoá tất cả bài (chỉ có tác dụng ở chế độ dev).
