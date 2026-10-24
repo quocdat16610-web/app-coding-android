@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens. Values are RGB channels so Tailwind can apply opacity (bg-primary/20).
+ * Hex reference is in the trailing comment of each line.
+ */
+@layer base {
+  :root,
+  [data-theme='light'] {
+    color-scheme: light;
+    --bg: 247 248 252; /* #F7F8FC */
+    --surface: 255 255 255; /* #FFFFFF */
+    --surface-2: 238 241 248; /* #EEF1F8 */
+    --text: 26 29 41; /* #1A1D29 */
+    --text-muted: 91 97 120; /* #5B6178 */
+    --primary: 127 82 255; /* #7F52FF */
+    --primary-soft: 237 229 255; /* #EDE5FF */
+    --accent: 61 220 132; /* #3DDC84 */
+    --accent-soft: 227 249 236; /* #E3F9EC */
+    --warning: 255 176 32; /* #FFB020 */
+    --danger: 240 68 56; /* #F04438 */
+    --locked: 196 200 212; /* #C4C8D4 */
+    --highlight: 255 243 176; /* #FFF3B0 */
+    --on-primary: 255 255 255; /* text on primary, contrast >= 4.5:1 */
+  }
+
+  /* System dark preference when no explicit theme was applied yet. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      color-scheme: dark;
+      --bg: 15 17 26; /* #0F111A */
+      --surface: 24 27 39; /* #181B27 */
+      --surface-2: 34 38 55; /* #222637 */
+      --text: 236 238 245; /* #ECEEF5 */
+      --text-muted: 154 160 184; /* #9AA0B8 */
+      --primary: 155 123 255; /* #9B7BFF */
+      --primary-soft: 42 34 69; /* #2A2245 */
+      --accent: 75 229 150; /* #4BE596 */
+      --accent-soft: 22 53 37; /* #163525 */
+      --locked: 58 63 82; /* #3A3F52 */
+      --highlight: 92 75 18; /* #5C4B12 */
+      --on-primary: 15 17 26;
+    }
+  }
+
+  [data-theme='dark'] {
+    color-scheme: dark;
+    --bg: 15 17 26;
+    --surface: 24 27 39;
+    --surface-2: 34 38 55;
+    --text: 236 238 245;
+    --text-muted: 154 160 184;
+    --primary: 155 123 255;
+    --primary-soft: 42 34 69;
+    --accent: 75 229 150;
+    --accent-soft: 22 53 37;
+    --locked: 58 63 82;
+    --highlight: 92 75 18;
+    --on-primary: 15 17 26;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-base text-text antialiased;
+    min-height: 100vh;
+  }
+
+  code,
+  pre,
+  kbd {
+    @apply font-mono;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--primary));
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: rgb(var(--primary) / 0.25);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card bg-surface shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-chip px-3 py-1 text-sm font-medium;
+  }
+
+  .lesson-prose {
+    @apply leading-lesson;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
